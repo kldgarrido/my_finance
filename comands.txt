@@ -27,3 +27,5 @@ python manage.py startapp webfinance
 Reset all migration
 python3.5 manage.py migrate --fake webfinance zero
 
+heroku run --app  radiant-hamlet-39941 python manage.py migrate --fake webfinance zero
+
