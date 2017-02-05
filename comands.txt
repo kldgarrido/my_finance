@@ -13,3 +13,17 @@ heroku run --app  radiant-hamlet-39941 python manage.py  sqlmigrate webfinance 0
 heroku run --app  radiant-hamlet-39941 python manage.py  sqlflush
 
 python manage.py startapp webfinance
+
+
+# Install model.
+1- setting.py -   INSTALLED_APPS -  'webfinance.apps.WebfinanceConfig',
+2.
+    python3.5 manage.py makemigrations webfinance
+3.
+    python3.5 manage.py sqlmigrate webfinance 0001
+4.
+    python3.5 manage.py migrate webfinance
+
+Reset all migration
+python3.5 manage.py migrate --fake webfinance zero
+

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'my_finance.webfinance',
+    'webfinance.apps.WebfinanceConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -79,9 +79,21 @@ WSGI_APPLICATION = 'my_finance.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-import dj_database_url   ####not working for my case
+"""
+import dj_database_url
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config()
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'my_finance2',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

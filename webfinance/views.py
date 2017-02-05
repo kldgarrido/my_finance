@@ -1,11 +1,11 @@
-from .models import Expense, ExpenseOperation
+from .models import Expense#,ExpenseOperation
 from uuid import uuid4
 from django.shortcuts import render
 import datetime
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 
-
+"""
 login_required
 def expense_operation(request):
     id = str(uuid4())
@@ -27,3 +27,4 @@ def expense_operation(request):
 
 def expense(request):
     return render(request, 'myapp/index.html')
+"""

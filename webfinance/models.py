@@ -14,54 +14,26 @@ class Expense(models.Model):
     id = models.CharField(primary_key=True, max_length=40)
     name = models.CharField(max_length=50)
 
-    class Meta:
-        managed = False
-        db_table = 'expense'
-
-    def __str__(self):
-        return self.name
 
 class ExpenseOperation(models.Model):
     id = models.CharField(primary_key=True, max_length=40)
-    expense = models.ForeignKey(Expense, models.DO_NOTHING, db_column='expense')
+    expense = models.ForeignKey(Expense, on_delete=models.CASCADE)
     description = models.CharField(max_length=50)
     balance = models.FloatField(blank=True, null=True)
     operation_date = models.DateField(blank=True, null=True)
-    account = models.CharField(max_length=40, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'expense_operation'
-
-    def __str__(self):
-        return self.expense.name+" - "+self.description+" - "+str(self.balance)
 
 class Ingress(models.Model):
     id = models.CharField(primary_key=True, max_length=40)
     name = models.CharField(max_length=50)
 
-    class Meta:
-        managed = False
-        db_table = 'ingress'
-
-    def __str__(self):
-        return self.name
-
 
 class IngressOperation(models.Model):
     id = models.CharField(primary_key=True, max_length=40)
-    ingress = models.ForeignKey(Ingress, models.DO_NOTHING, db_column='ingress')
+    ingress = models.ForeignKey(Ingress, on_delete=models.CASCADE)
     description = models.CharField(max_length=100)
     balance = models.FloatField(blank=True, null=True)
     operation_date = models.DateField(blank=True, null=True)
     account = models.CharField(max_length=40, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'ingress_operation'
-
-    def __str__(self):
-        return self.ingress.name + " - " + self.description + " - " + str(self.balance)
-
 
 
