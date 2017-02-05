@@ -55,7 +55,6 @@ class IngressOperation(models.Model):
     balance = models.FloatField(blank=True, null=True)
     operation_date = models.DateField(blank=True, null=True)
     account = models.CharField(max_length=40, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='user', blank=True, null=True)
 
     class Meta:
         managed = False
