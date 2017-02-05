@@ -1,0 +1,11 @@
+django-admin startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile  my_finance
+
+heroku run --app  radiant-hamlet-39941 python manage.py createsuperuser
+
+
+heroku run --app  radiant-hamlet-39941 python manage.py migrate
+
+
+heroku run --app  radiant-hamlet-39941 python manage.py dbshell
+
+heroku run --app  radiant-hamlet-39941 python manage.py sqlmigrate my_finance 0001_initial
