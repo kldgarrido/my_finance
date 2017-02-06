@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="." method="GET" class="form-inline">
+
+    <!--
+    <div class="form-group">
+        <label for="inputOperation_date">Operation_date</label>
+        <input type="date" class="form-control" id="inputOperation_date" name="inputOperation_date" placeholder="12/12/1999"
+               value="{{ now }}">
+    </div>
+    -->
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="">
+    </div>
+
+
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+    </tr>
+    {% for expense in expenses%}
+    <tr>
+        <td>{{ expense.name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
