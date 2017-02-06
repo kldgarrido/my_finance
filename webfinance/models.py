@@ -25,6 +25,9 @@ class ExpenseOperation(models.Model):
     balance = models.FloatField(blank=True, null=True)
     operation_date = models.DateField(blank=True, null=True)
 
+    def __str__(self):
+        return self.expense.name + " " +self.description
+
 
 class Ingress(models.Model):
     id = models.CharField(primary_key=True, max_length=40)
